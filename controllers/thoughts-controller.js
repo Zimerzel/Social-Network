@@ -1,6 +1,6 @@
 const {  Thoughts, Users } = require('../models');
 
-const commentController = {
+const thoughtsController = {
   // add comment to pizza
   addThought({ params, body }, res) {
     console.log(params);

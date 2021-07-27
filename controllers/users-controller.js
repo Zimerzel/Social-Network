@@ -1,4 +1,3 @@
-const { builtinModules } = require('module');
 const { Users } = require('../models');
 
 const usersController = {
@@ -92,4 +91,4 @@ const usersController = {
 
 };
 
-builtinModules.exports =usersController;
+module.exports =usersController;
