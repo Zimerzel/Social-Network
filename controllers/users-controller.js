@@ -9,11 +9,10 @@ const usersController = {
         .catch(err => res.status(400).json(err));
     },
 
-    getAllUsers({ params, body }, res) {
+    getAllUsers(req, res) {
         Users.find({})
         .populate({path: 'thoughts', select: '-__v'})
-        .populate({path: 'friends',select: '-__v'})
-        .select('__v')
+        .select('-__v')
         .then(dbUsersData => res.json(dbUsersData))
         .catch(err => {
             console.log(err);
