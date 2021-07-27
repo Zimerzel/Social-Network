@@ -14,7 +14,7 @@ const usersController = {
         .populate({path: 'thoughts', select: '-__v'})
         .populate({path: 'friends',select: '-__v'})
         .select('__v')
-        .then(dbThoughtsData => res.json(dbUsersData))
+        .then(dbUsersData => res.json(dbUsersData))
         .catch(err => {
             console.log(err);
             res.json(err);
@@ -27,7 +27,7 @@ const usersController = {
         .populate({path: 'reactions',select: '-__v'})
         .populate({path: 'friends',select: '-__v'})
         .select('-__v')
-        .then(dbThoughtsData => res.json(dbUsersData))
+        .then(dbUsersData => res.json(dbUsersData))
         .catch(err => {
             console.log(err);
             res.status(400).json(err);
