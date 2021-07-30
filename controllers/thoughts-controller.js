@@ -2,12 +2,12 @@ const {  Thoughts, Users } = require('../models');
 
 const thoughtsController = {
   // add comment to pizza
-  addThought({ params, body }, res) {
+  addThought({params, body }, res) {
     console.log(params);
     Thoughts.create(body)
       .then(({ _id }) => {
         return Users.findOneAndUpdate(
-          { _id: params.userId },
+          { _id: body.userId },
           { $push: { thoughts: _id } },
           { new: true }
         );
@@ -25,15 +25,7 @@ const thoughtsController = {
 
   getAllThoughts({ params, body }, res) {
     Thoughts.find({})
-    .populate({path: 'reactions', select: '-__v'})
-    .select('__v')
-    .then(dbThoughtsData => {
-      if (!dbThoughtsData) {
-        res.status(404).json({ message: 'No thoughts found with this id!' });
-        return;
-      }
-      res.json(dbThoughtsData);
-    })
+    .then(dbThoughtData => res.json(dbThoughtData))
     .catch(err => res.json(err));
   },
 
@@ -99,7 +91,7 @@ const thoughtsController = {
 
   // remove reply
   removeReaction({ params }, res) {
-    Thoughts.findOneAndUpdate({_id: params.commentId },{ $pull: { replies: { replyId: params.replyId } } },{ new: true }
+    Thoughts.findOneAndUpdate({_id: params.thoughtId },{ $pull: { reactions: { reactionId: params.reactionId } } },{ new: true }
     )
       .then(dbThoughtsData => res.json(dbThoughtsData))
       .catch(err => res.status(400).json(err));
@@ -107,3 +99,4 @@ const thoughtsController = {
 };
 
 module.exports = thoughtsController;
+
