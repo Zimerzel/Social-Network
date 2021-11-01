@@ -9,7 +9,7 @@ const typeDefs = gql `
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addThought(thoughtData: ThoughtInput!): User
+        saveThought(thoughtData: ThoughtInput!): User
         removeThought(reactionId: String!): User
     }
 
@@ -28,7 +28,7 @@ const typeDefs = gql `
 
     }
 
-    input ThoughtInput{
+    input Thought{
         reactionId : ID
         reactionBody : String
         username : String
