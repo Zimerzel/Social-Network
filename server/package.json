@@ -1,0 +1,31 @@
+{
+  "name": "Social-Network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "apollo-server-express": "^3.4.0",
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "graphql": "^16.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.13.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zimerzel/Social-Network.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zimerzel/Social-Network/issues"
+  },
+  "homepage": "https://github.com/Zimerzel/Social-Network#readme"
+}
