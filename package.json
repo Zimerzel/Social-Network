@@ -1,27 +1,24 @@
 {
-  "name": "Social-Network",
+  "name": "Netwrk",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "moment": "^2.29.1",
-    "mongoose": "^5.13.3"
-  },
-  "devDependencies": {},
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Zimerzel/Social-Network.git"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Zimerzel/Social-Network/issues"
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   },
-  "homepage": "https://github.com/Zimerzel/Social-Network#readme"
+  "dependencies": {
+    "@apollo/client": "^3.4.7",
+    "graph": "^0.2.0",
+    "graphql": "^15.5.1",
+    "ql": "^0.1.5"
+  }
 }
